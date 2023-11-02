@@ -4,26 +4,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { MoviesModule } from './components/movies/movies.module';
+import { MovieListComponent } from './movie-list/movie-list.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [MovieListComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
     ButtonModule,
-    MoviesModule,
     TableModule,
     BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [],
+  exports: [MovieListComponent],
 })
-export class AppModule {}
+export class MoviesModule {}
