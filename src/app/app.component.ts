@@ -7,5 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Movies';
-  fruits = ['apple', 'cherry', 'strawberry', 'kumquat', 'banana', 'avocado'];
+  fruits = [
+    'apple',
+    'cherry',
+    'strawberry',
+    'person',
+    'deer',
+    'child',
+    'banana',
+    'avocado',
+  ];
 }

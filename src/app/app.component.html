@@ -1,7 +1,19 @@
 <h3>i'm in the app component</h3>
 
-@for(let fruit of fruits; track fruit) {
-{{ fruit | pluralize : fruits.length }}
-}
+<table>
+  <thead>
+    <td><b>original</b></td>
+    <td><b>pluralized</b></td>
+  </thead>
+  <tbody>
+    @for(fruit of fruits; track fruit) {
+    <tr>
+      <td>{{ fruit }}</td>
+      <td>{{ fruit | pluralize : fruits.length }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
+
 <hr />
 <app-movie-list></app-movie-list>

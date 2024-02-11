@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
+import * as apiKey from '../api.config.json';
 import { MovieModel } from '../models/movie/movie-model';
 
 export interface MovieDBResponse {
@@ -18,10 +19,7 @@ export class TheMovieDbService {
   apiKey: string = '75a7c0ffeeb7ffe69b7e49aa2762ed6e';
   headers: HttpHeaders = new HttpHeaders()
     .set('accept', 'application/json')
-    .set(
-      'Authorization',
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NWE3YzBmZmVlYjdmZmU2OWI3ZTQ5YWEyNzYyZWQ2ZSIsInN1YiI6IjVmZWUxNTRmMTVhNGExMDAzYzVkYzRmZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DSmcxdPf3IsaNMrfn_7oFHm0gkpdRzpsflL3vroGGEA'
-    );
+    .set('Authorization', apiKey['api-key']);
   constructor(private http: HttpClient) {}
 
   public getMoviesByYear(year: string): Observable<MovieModel[]> {
