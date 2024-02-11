@@ -1,3 +1,7 @@
 <h3>i'm in the app component</h3>
+
+@for(let fruit of fruits; track fruit) {
+{{ fruit | pluralize : fruits.length }}
+}
 <hr />
 <app-movie-list></app-movie-list>

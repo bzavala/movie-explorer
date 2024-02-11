@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { MoviesModule } from './components/movies/movies.module';
+import { PluralizePipe } from './pipes/pluralize.pipe';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { MoviesModule } from './components/movies/movies.module';
     MoviesModule,
     TableModule,
     BrowserAnimationsModule,
+    PluralizePipe,
   ],
   providers: [],
   bootstrap: [AppComponent],
