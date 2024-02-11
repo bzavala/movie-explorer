@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import * as apiKey from '../api.config.json';
+import apiConfig from '../api.config.json';
 import { MovieModel } from '../models/movie/movie-model';
 
 export interface MovieDBResponse {
@@ -16,10 +16,11 @@ export interface MovieDBResponse {
 })
 export class TheMovieDbService {
   baseUrl: string = 'https://api.themoviedb.org/3';
-  apiKey: string = '75a7c0ffeeb7ffe69b7e49aa2762ed6e';
+
   headers: HttpHeaders = new HttpHeaders()
     .set('accept', 'application/json')
-    .set('Authorization', apiKey['api-key']);
+    .set('Authorization', apiConfig.header);
+
   constructor(private http: HttpClient) {}
 
   public getMoviesByYear(year: string): Observable<MovieModel[]> {
