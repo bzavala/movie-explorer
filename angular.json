@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng4-complete-guide:build:production"
+              "buildTarget": "ng4-complete-guide:build:production"
             },
             "development": {
-              "browserTarget": "ng4-complete-guide:build:development"
+              "buildTarget": "ng4-complete-guide:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng4-complete-guide:build"
+            "buildTarget": "ng4-complete-guide:build"
           }
         },
         "test": {
