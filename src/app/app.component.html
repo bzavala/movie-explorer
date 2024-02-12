@@ -1,22 +1,5 @@
 <h3>i'm in the app component</h3>
-
-<table>
-  <thead>
-    <td><b>original</b></td>
-    <td><b>pluralized</b></td>
-  </thead>
-  <tbody>
-    @for(fruit of fruits; track fruit) {
-    <tr>
-      <td>{{ fruit }}</td>
-      <td>{{ fruit | pluralize : fruits.length }}</td>
-    </tr>
-    }
-  </tbody>
-</table>
 <hr />
 <div class="grid">
-  <app-movies-now-playing class="col"></app-movies-now-playing>
-  <app-movies-trending class="col"></app-movies-trending>
-  <app-movie-list class="col"></app-movie-list>
+  <router-outlet></router-outlet>
 </div>

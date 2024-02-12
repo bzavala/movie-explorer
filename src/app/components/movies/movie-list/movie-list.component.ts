@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MovieModel } from 'src/app/models/movie/movie-model';
 import { TheMovieDbService } from 'src/app/services/the-movie-db.service';
 
@@ -7,11 +7,13 @@ import { TheMovieDbService } from 'src/app/services/the-movie-db.service';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss'],
 })
-export class MovieListComponent {
+export class MovieListComponent implements OnInit {
   @Input() year!: string;
   movies!: MovieModel[];
 
-  constructor(private movieClient: TheMovieDbService) {
+  constructor(private movieClient: TheMovieDbService) {}
+
+  ngOnInit() {
     this.getMoviesByYear('1999', 10);
   }
   getMoviesByYear(year: string, limit: Number = 10): void {

@@ -1,5 +1,9 @@
 <ul>
   @for(movie of movies; track movie) {
-  <li>{{ movie.title }}</li>
+  <li>
+    <a routerLink="/movie/{{ movie.id }}">
+      {{ movie.title }}
+    </a>
+  </li>
   }
 </ul>

@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { MovieListComponent } from './movie-list/movie-list.component';
@@ -18,6 +19,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     ButtonModule,
     TableModule,
     BrowserAnimationsModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [],
