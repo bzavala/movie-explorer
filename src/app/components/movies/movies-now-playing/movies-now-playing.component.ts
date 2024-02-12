@@ -15,8 +15,8 @@ export class MoviesNowPlayingComponent {
   movies: MovieModel[];
 
   constructor(private movieClient: TheMovieDbService) {
-    this.movies = new Array<MovieModel>({});
-    this.movieClient.getMoviesTrendingWeek().subscribe({
+    this.movies = new Array<MovieModel>();
+    this.movieClient.getMoviesTrendingThisWeek().subscribe({
       next: (list) => {
         this.movies = list;
       },

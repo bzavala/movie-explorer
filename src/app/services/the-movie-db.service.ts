@@ -23,7 +23,7 @@ export class TheMovieDbService {
 
   constructor(private http: HttpClient) {}
 
-  getMoviesTrendingWeek(): Observable<MovieModel[]> {
+  getMoviesTrendingThisWeek(): Observable<MovieModel[]> {
     const url = `${this.baseUrl}/trending/movie/week?language=en-US&sort_by=vote_count.asc`;
     return this.http
       .get<MovieDBResponse>(url, { headers: this.headers })
@@ -46,7 +46,7 @@ export class TheMovieDbService {
 
   getMovieById(id: number): Observable<MovieModel> {
     const url = `${this.baseUrl}/movie/${id}`;
-    return this.http.get(url, {
+    return this.http.get<MovieModel>(url, {
       headers: this.headers,
     });
   }

@@ -13,11 +13,11 @@ import { TableModule } from 'primeng/table';
   styleUrl: './movies-trending.component.scss',
 })
 export class MoviesTrendingComponent {
-  weekTrend!: MovieModel[];
+  movies!: MovieModel[];
 
   constructor(private movieClient: TheMovieDbService) {
-    this.movieClient.getMoviesTrendingWeek().subscribe({
-      next: (list) => (this.weekTrend = list),
+    this.movieClient.getMoviesTrendingThisWeek().subscribe({
+      next: (list) => (this.movies = list),
       error: (error) => console.log(error),
     });
   }
