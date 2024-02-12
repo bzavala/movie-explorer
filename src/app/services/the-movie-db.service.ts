@@ -23,40 +23,31 @@ export class TheMovieDbService {
 
   constructor(private http: HttpClient) {}
 
-  public getMoviesByYear(year: string): Observable<MovieModel[]> {
-    const params = {
-      primary_release_year: year,
-      sort_by: 'revenue.desc',
-      page: '1',
-    };
-    const url = this.getUrl('discover/movie', params);
+  getMoviesTrendingWeek(): Observable<MovieModel[]> {
+    const url = `${this.baseUrl}/trending/movie/week?language=en-US&sort_by=vote_count.asc`;
+    return this.http
+      .get<MovieDBResponse>(url, { headers: this.headers })
+      .pipe(map((response) => response.results));
+  }
 
+  getMoviesByYear(year: string): Observable<MovieModel[]> {
+    const url = `${this.baseUrl}/discover/movie?primary_release_year=${year}&sort_by=revenue.desc&page=1`;
+    return this.http
+      .get<MovieDBResponse>(url, { headers: this.headers })
+      .pipe(map((response) => response.results));
+  }
+
+  getMoviesNowPlaying(): Observable<MovieModel[]> {
+    const url = `${this.baseUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&release_date.gte={min_date}&release_date.lte={max_date}' `;
     return this.http
       .get<MovieDBResponse>(url, { headers: this.headers })
       .pipe(map((response) => response.results));
   }
 
   getMovieById(id: number): Observable<MovieModel> {
-    const params = {
-      sort_by: 'revenue.desc',
-      page: '1',
-    };
-    const url = this.getUrl(`movie/${id}`, params);
-    console.log(url);
+    const url = `${this.baseUrl}/movie/${id}`;
     return this.http.get(url, {
       headers: this.headers,
     });
-  }
-
-  private getUrl(contentType: string, params?: any): string {
-    let paramString = '';
-    if (params != null) {
-      Object.keys(params).forEach((key, index, array) => {
-        const value = params[key];
-        paramString += `${key}=${value}&`;
-      });
-    }
-
-    return `${this.baseUrl}/${contentType}?${paramString}`;
   }
 }

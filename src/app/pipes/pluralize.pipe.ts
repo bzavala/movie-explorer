@@ -105,7 +105,6 @@ export class PluralizePipe implements PipeTransform {
 
     for (const [key, value] of Object.entries(this.plural)) {
       const pattern = new RegExp(key, 'i');
-      console.log(this.plural, key);
       if (pattern.test(word)) return word.replace(pattern, value);
     }
 

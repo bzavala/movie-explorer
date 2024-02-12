@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { MoviesNowPlayingComponent } from './components/movies/movies-now-playing/movies-now-playing.component';
+import { MoviesTrendingComponent } from './components/movies/movies-trending/movies-trending.component';
 import { MoviesModule } from './components/movies/movies.module';
 import { PluralizePipe } from './pipes/pluralize.pipe';
 
@@ -24,6 +26,8 @@ import { PluralizePipe } from './pipes/pluralize.pipe';
     TableModule,
     BrowserAnimationsModule,
     PluralizePipe,
+    MoviesTrendingComponent,
+    MoviesNowPlayingComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
