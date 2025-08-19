@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,22 +14,15 @@ import { MoviesTrendingComponent } from './components/movies/movies-trending/mov
 import { MoviesModule } from './components/movies/movies.module';
 import { PluralizePipe } from './pipes/pluralize.pipe';
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    ButtonModule,
-    MoviesModule,
-    TableModule,
-    BrowserAnimationsModule,
-    PluralizePipe,
-    MoviesTrendingComponent,
-    MoviesNowPlayingComponent,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        ButtonModule,
+        MoviesModule,
+        TableModule,
+        BrowserAnimationsModule,
+        PluralizePipe,
+        MoviesTrendingComponent,
+        MoviesNowPlayingComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
