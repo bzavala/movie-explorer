@@ -3,9 +3,10 @@ import { MovieModel } from 'src/app/models/movie/movie-model';
 import { TheMovieDbService } from 'src/app/services/the-movie-db.service';
 
 @Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.scss'],
+    selector: 'app-movie-list',
+    templateUrl: './movie-list.component.html',
+    styleUrls: ['./movie-list.component.scss'],
+    standalone: false
 })
 export class MovieListComponent implements OnInit {
   @Input() year!: string;

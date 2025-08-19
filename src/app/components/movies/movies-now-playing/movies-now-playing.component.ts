@@ -9,7 +9,7 @@ import { TheMovieDbService } from 'src/app/services/the-movie-db.service';
   standalone: true,
   imports: [ButtonModule, TableModule],
   templateUrl: './movies-now-playing.component.html',
-  styleUrl: './movies-now-playing.component.scss',
+  styleUrl: './movies-now-playing.component.scss'
 })
 export class MoviesNowPlayingComponent {
   movies: MovieModel[];

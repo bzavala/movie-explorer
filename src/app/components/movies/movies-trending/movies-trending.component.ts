@@ -6,11 +6,10 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 
 @Component({
-  selector: 'app-movies-trending',
-  standalone: true,
-  imports: [ButtonModule, TableModule],
-  templateUrl: './movies-trending.component.html',
-  styleUrl: './movies-trending.component.scss',
+    selector: 'app-movies-trending',
+    imports: [ButtonModule, TableModule],
+    templateUrl: './movies-trending.component.html',
+    styleUrl: './movies-trending.component.scss'
 })
 export class MoviesTrendingComponent {
   movies!: MovieModel[];

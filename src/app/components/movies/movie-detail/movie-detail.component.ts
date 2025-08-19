@@ -8,7 +8,7 @@ import { TheMovieDbService } from 'src/app/services/the-movie-db.service';
   standalone: true,
   imports: [],
   templateUrl: './movie-detail.component.html',
-  styleUrl: './movie-detail.component.scss',
+  styleUrl: './movie-detail.component.scss'
 })
 export class MovieDetailComponent implements OnInit {
   movie!: MovieModel;
@@ -16,7 +16,7 @@ export class MovieDetailComponent implements OnInit {
   constructor(
     private movieClient: TheMovieDbService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getMovieById();
