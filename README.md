@@ -1,7 +1,5 @@
 # Movies
 
-## About
-
 Discover movies by highest or lowest popularity (vote count), revenue, or rating (vote average).
 
 ## Getting started
