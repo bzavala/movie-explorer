@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { MovieModel } from 'src/app/models/movie/movie-model';
@@ -12,15 +12,17 @@ import { TheMovieDbService } from 'src/app/services/the-movie-db.service';
   styleUrl: './movies-now-playing.component.scss'
 })
 export class MoviesNowPlayingComponent {
+  private _movieClient = inject(TheMovieDbService);
+  title = 'Movies Now Playing';
   movies: MovieModel[];
 
-  constructor(private movieClient: TheMovieDbService) {
+  constructor() {
     this.movies = new Array<MovieModel>();
-    this.movieClient.getMoviesTrendingThisWeek().subscribe({
+    this._movieClient.getMoviesTrendingThisWeek().subscribe({
       next: (list) => {
         this.movies = list;
       },
-      error: (error) => console.log(error),
+      error: (error) => console.error(error),
     });
   }
 }

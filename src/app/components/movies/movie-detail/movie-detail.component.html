@@ -1,20 +1,92 @@
-<h1>{{ movie.title }}</h1>
-{{ movie.release_date }}
-<p>
-  {{ movie.overview }}
-</p>
-<img
-  src="https://media.themoviedb.org/t/p/w440_and_h660_face/{{
-    movie.poster_path
-  }}"
-/>
-{{ movie.backdrop_path }}
+<div
+  class="backdrop"
+  [ngStyle]="{ 'background-image': 'url(' + movie.getBackdropUrl() + ')' }"
+></div>
 
-<p>{{ movie.revenue }}</p>
-<!-- {{ movie.genre_ids }} -->
-<ul>
-  <li>Is Adult: {{ movie.adult }}</li>
-  <li>Language: {{ movie.original_language }}</li>
-  <li>Original title: {{ movie.original_title }}</li>
-  <li>Popularity: {{ movie.popularity }}</li>
-</ul>
+<div class="movie-detail p-7">
+  <p-card class="mb-4 p-4 p-card-w-full movie-detail-card">
+    <div class="flex align-items-stretch">
+      <p-image
+        [src]="movie.getPosterUrl(PosterSizes.W342)"
+        [alt]="movie.getPosterAltText()"
+        class="h-auto mr-5"
+      />
+
+      <div class="p-card-content mt-0">
+        <p class="text-5xl font-light my-0">{{ movie.title }}</p>
+        <span class="text-xl font-light p-card-subtitle block mt-1 mb-3">
+          {{ movie.tagline }}
+        </span>
+        <app-highlight-line
+          [releaseYear]="movie.getReleaseYear()"
+          [rating]="movie.getRating()"
+          [runtime]="movie.getRuntime()"
+          [voteAverage]="movie.vote_average"
+          [voteCount]="movie.vote_count"
+        />
+        <app-by-line
+          [directors]="movie.getDirectors()"
+          [writers]="movie.getWriters()"
+          [stars]="movie.getStars()"
+        />
+        <p class="mb-4">
+          {{ movie.overview | truncate: 300 }}
+          @if (movie.overview.length > 300) {
+            <a href="#" class="text-smß">Read more</a>
+          }
+        </p>
+        @if (movie.genres.length > 0) {
+          <div class="mb-2">
+            @for (genre of movie.genres; track genre.id) {
+              <p-chip label="{{ genre.name }}" class="mr-1"></p-chip>
+            }
+          </div>
+        }
+      </div>
+    </div>
+    <p-divider />
+    <h3>TODO: REVENUE GRAPH</h3>
+    <p-divider />
+    <p-tabs value="0">
+      <p-tablist>
+        <p-tab value="0" header="Cast">
+          Cast ({{ movie.getCast().length }})
+          <ng-template pTemplate="header"> </ng-template>
+        </p-tab>
+        <p-tab value="1" header="Crew">
+          Crew ({{ movie.getCrew().length }})
+        </p-tab>
+      </p-tablist>
+      <p-tabpanels>
+        <p-tabpanel value="0">
+          @for (castMember of movie.getCast(); track castMember.id) {
+            <div
+              class="flex align-items-center justify-content-start my-1 text-sm border-bottom-1 py-3"
+            >
+              <span class="font-semibold w-10rem">
+                {{ castMember.name }}
+              </span>
+              <span class="ml-2">{{ castMember.character }}</span>
+            </div>
+          } @empty {
+            <p>No cast information available.</p>
+          }
+        </p-tabpanel>
+        <p-tabpanel value="1">
+          @for (crewMember of movie.getCrew(); track crewMember.id) {
+            <div
+              class="flex align-items-center justify-content-start my-1 text-sm border-bottom-1 py-3"
+            >
+              <span class="font-semibold w-16rem">
+                {{ crewMember.job }}
+              </span>
+              <span class="ml-2">{{ crewMember.name }}</span>
+            </div>
+          } @empty {
+            <p>No crew information available.</p>
+          }
+        </p-tabpanel>
+      </p-tabpanels>
+    </p-tabs>
+  </p-card>
+</div>

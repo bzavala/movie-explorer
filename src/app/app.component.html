@@ -1,5 +1,21 @@
-<h3>i'm in the app component</h3>
-<hr />
 <div class="grid">
-  <router-outlet></router-outlet>
+  <!-- <p-menubar class="col-12" [model]="menuItems">
+    <ng-template #item let-item let-root="root">
+      <a pRipple class="flex p-menubar-item-link">
+        <span>{{ item.label }}</span>
+      </a>
+    </ng-template>
+    <ng-template #end>
+      <div class="flex items-center gap-2">
+        <input type="text" pInputText placeholder="Search" class="w-36" />
+      </div>
+    </ng-template>
+  </p-menubar> -->
+  <p-breadcrumb
+    class="col-12 text-sm py-0 my-0 breadcrumbs"
+    [model]="breadcrumbItems()"
+  ></p-breadcrumb>
+  <div class="content w-full pt-0 p-4 h-screen">
+    <router-outlet></router-outlet>
+  </div>
 </div>

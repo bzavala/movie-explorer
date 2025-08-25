@@ -1,9 +1,36 @@
-<ul>
-  @for(movie of movies; track movie) {
-  <li>
-    <a routerLink="/movie/{{ movie.id }}">
-      {{ movie.title }}
-    </a>
-  </li>
-  }
-</ul>
+@for (movie of movies(); track movie.id) {
+  <p-card class="mb-2 p-card-w-full movie-card">
+    <div class="flex align-items-stretch">
+      <img
+        [src]="movie.getPosterUrl()"
+        alt="{{ movie.title }}"
+        class="w-200 h-auto mr-3"
+      />
+      <div class="p-card-content mt-0">
+        <h3 class="my-0">{{ movie.title }}</h3>
+        <div class="mb-1 text-sm">
+          <span class="mr-1">
+            {{ movie.getReleaseYear() }}
+          </span>
+          <app-movie-popularity
+            [voteAverage]="movie.vote_average"
+            [voteCount]="movie.vote_count"
+          />
+        </div>
+        <p class="mb-8 pb-3">
+          {{ movie.overview | truncate: 150 }}
+          @if (movie.overview.length > 150) {
+            <a href="#" class="text-sm block">Read more</a>
+          }
+        </p>
+        <div class="view-details">
+          <p-button
+            label="View Details"
+            [routerLink]="['/movie', movie.id]"
+          ></p-button>
+        </div>
+      </div>
+      <div class="p-card-footer"></div>
+    </div>
+  </p-card>
+}

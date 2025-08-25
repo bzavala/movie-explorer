@@ -1,0 +1,54 @@
+<p-card class="border-1 border-round-lg shadow-2 w-full">
+  <form (ngSubmit)="onSubmit()" class="flex flex-wrap gap-3">
+    <div class="field">
+      <label for="order" class="block mb-2">Show</label>
+      <p-select
+        id="order"
+        [(ngModel)]="query.sortOrder"
+        name="sortOrder"
+        [options]="sortOrderOptions"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Sort order"
+      ></p-select>
+    </div>
+    <div class="field">
+      <label for="count" class="block mb-2"># movies</label>
+      <p-select
+        id="count"
+        [(ngModel)]="query.count"
+        name="count"
+        [options]="countOptions"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Count"
+      ></p-select>
+    </div>
+
+    <div class="field">
+      <label for="aspect" class="block mb-2">By</label>
+      <p-select
+        id="aspect"
+        [(ngModel)]="query.aspect"
+        name="aspect"
+        [options]="aspectOptions"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Aspect"
+      ></p-select>
+    </div>
+
+    <div class="field">
+      <label for="year" class="block mb-2">Year</label>
+      <p-datepicker
+        [(ngModel)]="query.year"
+        name="year"
+        view="year"
+        dateFormat="yy"
+      />
+    </div>
+    <div class="field mt-4">
+      <p-button label="Search" type="submit"></p-button>
+    </div>
+  </form>
+</p-card>

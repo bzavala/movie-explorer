@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  transform: scale(1.1); // prevents edges from showing after blur
+  z-index: 0;
+}
+
+.movie-detail {
+  position: relative;
+  z-index: 1;
+  // color: white; // make sure text is readable
+}

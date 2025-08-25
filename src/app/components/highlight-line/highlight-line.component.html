@@ -1,0 +1,17 @@
+<div class="text-secondary font-light text-sm mb-2">
+  @if (releaseYear()) {
+    <span class="mr-4">{{ releaseYear() }}</span>
+  }
+  @if (rating()) {
+    <span class="mr-4">{{ rating() }}</span>
+  }
+  @if (runtime()) {
+    <span class="mr-4">{{ runtime() }}</span>
+  }
+  @if (voteAverage() && voteCount()) {
+    <app-movie-popularity
+      [voteAverage]="voteAverage()"
+      [voteCount]="voteCount()"
+    />
+  }
+</div>

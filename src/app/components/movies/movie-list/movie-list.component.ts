@@ -1,29 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MovieModel } from 'src/app/models/movie/movie-model';
-import { TheMovieDbService } from 'src/app/services/the-movie-db.service';
+
+import { RouterModule } from '@angular/router';
+import { Button } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
+import { MoviePopularityComponent } from '../movie-popularity/movie-popularity.component';
 
 @Component({
-    selector: 'app-movie-list',
-    templateUrl: './movie-list.component.html',
-    styleUrls: ['./movie-list.component.scss'],
-    standalone: false
+  selector: 'app-movie-list',
+  templateUrl: './movie-list.component.html',
+  styleUrls: ['./movie-list.component.scss'],
+  standalone: true,
+  imports: [
+    CardModule,
+    RouterModule,
+    MoviePopularityComponent,
+    TruncatePipe,
+    Button,
+  ],
 })
-export class MovieListComponent implements OnInit {
-  @Input() year!: string;
-  movies!: MovieModel[];
-
-  constructor(private movieClient: TheMovieDbService) {}
-
-  ngOnInit() {
-    this.getMoviesByYear('1999', 10);
-  }
-  getMoviesByYear(year: string, limit: Number = 10): void {
-    this.movieClient.getMoviesByYear(year).subscribe({
-      next: (list) => (this.movies = list),
-      error: (error) => console.log(error),
-    });
-  }
-  getMovieRevenue(id: number) {
-    return this.movieClient.getMovieById(id);
-  }
+export class MovieListComponent {
+  movies = input.required<MovieModel[]>();
 }
