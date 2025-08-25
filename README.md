@@ -2,6 +2,7 @@
 
 Discover movies by highest or lowest popularity (vote count), revenue, or rating (vote average).
 
+
 ## Getting started
 
 1. `git clone https://github.com/bzavala/movies.git`
@@ -20,7 +21,7 @@ Discover movies by highest or lowest popularity (vote count), revenue, or rating
 
 ## TODO
 
-- Functional breadcrumbs
-- Simple search vs Advanced search
 - Finalize query form
+- Simple search vs Advanced search
+- Functional breadcrumbs
 - Update backdrop URL so .content updates when movie detail is loaded
