@@ -1,6 +1,6 @@
-# Movies
+# moovees
 
-This project is an Angular application which connects to The Movie Database API and allows users to search/browse movies and drill into their data. It includes a query form composed of PrimeNG form and layout elements. When the user clicks ’Search’, the relevant movie list is dynamically rendered in a series of customized PrimeNG card components. Once the user locates a movie they want to learn more about, they click ‘View details” for that movie, and they’re able to see much more detail about the film along with a tabbed presentation of Cast and Crew members.
+A simple app that allows users to get a list of movies from a time range and filter them by most/least popularity, revenue, or rating.
 
 ## Getting started
 
