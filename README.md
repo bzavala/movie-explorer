@@ -1,4 +1,4 @@
-# moovees
+# movies
 
 A simple app that allows users to get a list of movies from a time range and filter them by most/least popularity, revenue, or rating.
 
