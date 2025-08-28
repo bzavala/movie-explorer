@@ -1,13 +1,13 @@
-# movies
+# movie-explorer
 
 A simple app that allows users to get a list of movies from a time range and filter them by most/least popularity, revenue, or rating.
 
 ## Getting started
 
-1. `git clone https://github.com/bzavala/movies.git`
-2. `cd movies`
+1. `git clone https://github.com/bzavala/movie-explorer.git`
+2. `cd movie-explorer`
 3. `npm install`
-4. Create `api.config.json` at root level of project (`/movies`)
+4. Create `api.config.json` at root level of project (`/movie-explorer`)
 ```
 {
   "readKey": "<insert your readkey here>",
