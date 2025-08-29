@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/RicoSuter/NSwag/master/src/NSwag.Commands/Commands/NSwagDocument.schema.json",
+  "runtime": "Net90",
+  "documentGenerator": {
+    "fromDocument": {
+      "url": "./tmdb-v3-openapi-spec.json",
+      "output": null
+    }
+  },
+  "codeGenerators": {
+    "openApiToTypeScriptClient": {
+      "className": "TmdbClient",
+      "template": "Angular",
+      "httpClass": "HttpClient",
+      "useAbortSignal": true,
+      "rxJsVersion": 7.0,
+      "generateClientClasses": true,
+      "generateClientInterfaces": true,
+      "injectionTokenType": "InjectionToken",
+      "generateDtoTypes": true,
+      "generateDtoTypesAsInterfaces": true,
+      "inlineNamedDictionaries": true,
+      "useTransformOptionsMethod": true,
+      "useTransformResultMethod": true,
+      "dateTimeType": "string",
+      "output": "lib/tmdb-client.ts"
+    }
+  }
+}
